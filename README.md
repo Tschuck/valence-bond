@@ -23,7 +23,7 @@ Valence-Bond will help you by the already mentioned taks and with the following 
   - OAuth2 authentication (login / logout)
   - frontend library that is working with angular and requireJS
 
-![alt tag](https://github.com/Tschuck/valence-sample/valence_bond_sample.png)
+![alt tag](https://github.com/Tschuck/valence-sample/raw/master/valence_bond_sample.png)
 
 ## 2. Installation
 Install valence-bond and the electron-prebuilt package: 
