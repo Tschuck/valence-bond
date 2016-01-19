@@ -33,6 +33,8 @@ Install valence-bond and the electron-prebuilt package:
   npm install -g electron-prebuilt
 ```
 
+Notice : <b>Please clone the project in to your node_modules, currently no npm version exists.</b>
+
 Require the valence start script and be sure to load it with the absolute path. 
 Without this, the application may not run successfully when it was build. 
 
