@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App Configurator</title>
+    <script src="../../public/init.js"></script>
+  </head>
+  <body ng-controller="config" ng-style="size">   
+    <app config="app.config" status="status[app.config.id]" ng-repeat="app in apps"></app>
+  </body>
+</html>

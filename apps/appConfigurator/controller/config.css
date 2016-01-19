@@ -1,0 +1,14 @@
+html, body {
+  margin  : 0;
+  padding : 0;
+  background-color : transparent;
+}
+
+html>body {
+  position : relative;
+  display : inline-block;
+  overflow: hidden;
+  padding : 10px;
+  
+  background-color : rgba(128, 127, 127, 0.3);
+}

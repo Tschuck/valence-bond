@@ -1,0 +1,35 @@
+@font-face {
+	font-family: 'valence';
+	src:url('fonts/valence.eot?tt61k0');
+	src:url('fonts/valence.eot?tt61k0#iefix') format('embedded-opentype'),
+		url('fonts/valence.ttf?tt61k0') format('truetype'),
+		url('fonts/valence.woff?tt61k0') format('woff'),
+		url('fonts/valence.svg?tt61k0#valence') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.valence-icon {
+	font-family: 'valence';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.valence-icon-sign-out:before {
+	content: "\e902";
+}
+.valence-icon-locked:before {
+	content: "\e900";
+}
+.valence-icon-unlocked:before {
+	content: "\e901";
+}
+

@@ -1,0 +1,17 @@
+{
+  "name": "valence-bond",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Tschuck",
+  "dependencies": {
+    "async": "^1.5.2",
+    "mkdirp": "^0.5.1",
+    "request": "^2.67.0"
+  },
+  "devDependencies": {
+    "asar": "^0.8.3",
+    "electron-installer-squirrel-windows": "^1.2.2",
+    "electron-packager": "^5.1.1",
+    "electron-squirrel-startup": "^0.1.4"
+  }
+}

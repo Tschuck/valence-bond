@@ -1,0 +1,11 @@
+<div class="valence-app" ng-class="{ 'valence-app-active' : status.active }">
+  <img ng-src="{{config.icon}}" class="valence-app-img">
+  <span class="valence-icon valence-app-logout valence-icon-sign-out" 
+    ng-if="config.auth && status.user"
+    ng-click="logout();"></span> 
+  <span class="valence-icon valence-app-auth" 
+    ng-if="config.auth" 
+    ng-class="{ 'valence-icon-unlocked' : status.user, 'valence-icon-locked' : !status.user}"
+    ng-click="status.active = !status.active; toggleAppStatus()"></span>
+  <beauty-on-off class="toggle-active-button" ng-model="status.active" ng-click="toggleAppStatus()"></beauty-on-off>
+</div>

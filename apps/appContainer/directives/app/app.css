@@ -1,0 +1,143 @@
+.valence-app {
+  height: 105px;
+  margin: 0 10px;
+  width: 105px;
+  display : inline-block;
+
+  cursor : pointer;
+  position:  relative;
+  transition: all 0.5s ease;
+  -webkit-user-select: none;
+  opacity : 1;
+}
+
+.valence-app .container{
+  position:absolute;
+  height:80px;
+  width:80px;
+  left: calc(50% - 8px);
+  top: calc(50% - 8px);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  -webkit-perspective:240px;
+          perspective:240px;
+}
+
+.valence-app .container.loading {
+  left:50%;
+  top:50%;
+}
+
+.cube{
+  height:80px;
+  widht:80px;
+  -webkit-transform-origin:50% 50%;
+          transform-origin:50% 50%;
+  -webkit-transform-style:preserve-3d;
+          transform-style:preserve-3d;
+}
+
+.valence-app > .container.loading > .cube {
+  -webkit-animation:rotate 3s infinite ease-in-out;
+          animation:rotate 3s infinite ease-in-out;
+}
+
+.side {
+  visibility: hidden;
+  position:absolute;
+  border : 1px solid transparent;
+  height:96.4px;
+  width:96.4px;
+  background-color: rgb(213, 216, 226, 0.1);
+  transition: background-color 1.5s ease;
+  transition: border-color 1s ease;
+}
+
+.valence-app > .container.loading > .cube > .side {
+  visibility : visible;
+  height:80px;
+  width:80px;
+  border : 1px solid gray;
+  background-color:rgba(183, 183, 183, 0.7);
+}
+
+.side1 {
+  visibility : visible;
+}
+
+.valence-app > .container.loading > .cube > .side1 {
+  transform: translateZ(40px);
+}
+.side2{
+  transform:rotateY(90deg) translateZ(40px);
+}
+.side3{
+  transform:rotateY(180deg) translateZ(40px);
+}
+.side4{
+  transform:rotateY(-90deg) translateZ(40px);
+}
+.side5{
+  transform:rotateX(90deg) translateZ(40px);
+}
+.side6{
+  transform:rotateX(-90deg) translateZ(40px);
+}
+
+@-webkit-keyframes rotate{
+  0%{
+    -webkit-transform:rotateX(0deg) rotateY(0deg);
+  }
+  40%{
+     -webkit-transform:rotateX(375deg) rotateY(0deg);
+  }
+  47%,50%{
+     -webkit-transform:rotateX(360deg) rotateY(0deg);    
+  }
+  90%{
+     -webkit-transform:rotateX(360deg) rotateY(375deg);
+  }
+  97%,100%{
+     -webkit-transform:rotateX(360deg) rotateY(360deg);
+  }
+}
+@keyframes rotate{
+  0%{
+    transform:rotateX(0deg) rotateY(0deg);
+  }
+  40%{
+    transform:rotateX(375deg) rotateY(0deg);
+  }
+  47%,50%{
+    transform:rotateX(360deg) rotateY(0deg);    
+  }
+  90%{
+    transform:rotateX(360deg) rotateY(375deg);
+  }
+  97%,100%{
+    transform:rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.side img {
+  width : 84px;
+  height : 84px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+
+  transition : width 0.5s, height 0.5s;
+}
+
+.valence-app > .container.loading > .cube > .side img,
+.valence-app:hover > .container.loading > .cube > .side img {
+  width: 70px;
+  height: 70px;
+}
+
+.valence-app:hover > .container > .cube > .side img {
+  width : 100px;
+  height : 100px;
+}

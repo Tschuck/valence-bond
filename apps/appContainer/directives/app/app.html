@@ -1,0 +1,15 @@
+<div class="valence-app animated ng-animate" ng-click="start()" ng-show="status.active" 
+     ng-class="{ 'bounceOutDown' : status.hide, 'bounceInUp' : !status.hide && status.active }">
+  <!--/div>img ng-src="{{app.icon}}" class="valence-app-img" >-->
+
+  <div class="container" ng-class="{ 'loading' : loading }">
+    <div class="cube">
+      <div class="side side1"><img ng-src="{{config.icon}}"></div>
+      <div class="side side2"><img ng-src="{{config.icon}}"></div>
+      <div class="side side3"><img ng-src="{{config.icon}}"></div>
+      <div class="side side4"><img ng-src="{{config.icon}}"></div>
+      <div class="side side5"><img ng-src="{{config.icon}}"></div>
+      <div class="side side6"><img ng-src="{{config.icon}}"></div>
+    </div>
+  </div>
+</div>

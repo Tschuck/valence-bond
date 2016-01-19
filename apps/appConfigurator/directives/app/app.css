@@ -1,0 +1,55 @@
+.valence-app {
+  height : 50px;
+  width : 170px;
+  margin-top: 10px;
+  display : inline-block;
+  margin : 10px 10px 0 10px;
+  position: relative;
+}
+
+.valence-app:first-child {
+  margin-top : 0px;
+}
+
+.valence-app > .valence-app-img {
+  width : 50px;
+  height : 50px;
+  margin-right : 0px;
+  display : inline-block;
+}
+
+.valence-app .toggle-active-button {
+  display : inline-block;
+  vertical-align: super;
+  top: -2px;
+}
+
+.valence-app > .valence-app-auth {
+  position: absolute;
+  top: 14px;
+  left: 83px;
+  font-size: 20px;
+  color: #333333;
+  z-index: 10;
+
+  cursor : pointer;
+}
+
+.valence-app.valence-app-active > .valence-app-auth {
+  left : 105px;
+}
+
+.valence-app > .valence-app-logout {
+  opacity: 0;
+  position : absolute;
+  left: 7px;
+  top: 8px;
+  font-size: 40px;
+  color: #333333;
+  transition : all 0.8s;
+  cursor : pointer;
+}
+
+.valence-app > .valence-app-logout:hover {
+  opacity: 1;
+}
