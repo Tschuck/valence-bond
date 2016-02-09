@@ -26,6 +26,7 @@ Valence-Bond will help you by the already mentioned taks and with the following 
 ![alt tag](https://github.com/Tschuck/valence-sample/raw/master/valence_bond_sample.png)
 
 ## 2. Installation
+Create an empty project folder or clone this [Valence-Sample-Project](https://github.com/Tschuck/valence-sample) to start developing.
 Install valence-bond and the electron-prebuilt package: 
 
 ```javascript
