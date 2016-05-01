@@ -1,4 +1,4 @@
-var ipc = require('ipc'); 
+var ipc = require("electron").ipcMain; 
 
 module.exports = function() {
   var self        = this;

@@ -1,4 +1,4 @@
-var ipc         = require('ipc');
+var ipc         = require("electron").ipcMain;
 var valence     = require(__dirname + '/../valence.js');
 var shortcuts   = require('global-shortcut');
 var onToggleValence = []; 

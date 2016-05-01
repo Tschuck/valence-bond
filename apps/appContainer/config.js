@@ -7,18 +7,16 @@ module.exports = {
 
   window : { 
     type            : 'splash',
-    "always-on-top" : true,
-    "skip-taskbar"  : true,
+    "alwaysOnTop" : true,
+    "skipTaskbar"  : true,
+    "overlayScrollbars" : false,
     
     x               : "center",
     y               : "100%",
     width           : 0,
     height          : 0,
 
-    "overlay-scrollbars" : false,
-    "always-on-top"      : true, 
-    resizable            : false,
-
+    resizable       : false,
     transparent     : true,
     frame           : false,
   }  

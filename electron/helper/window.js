@@ -15,7 +15,7 @@ var createWindow = function() {
   this.api.app.loading(true);
 
   var win = new BrowserWindow(this.config.window); 
-  win.loadUrl('file://' + this.config.path + '/index.html');
+  win.loadURL('file://' + this.config.path + '/index.html');
 
   if (this.config.devMode) {
     win.openDevTools({

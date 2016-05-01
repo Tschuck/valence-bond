@@ -1,4 +1,4 @@
-var ipc     = require('ipc'); // electron event  handler 
+var ipc     = require("electron").ipcMain; // electron event  handler 
 var request = require('request');
 var valence = require(__dirname + '/../valence.js');
 
@@ -75,7 +75,7 @@ AuthHelper.prototype.handleAuthWindow = function(url, callback) {
   });
 
   authWindow.webContents.session.clearStorageData({ storages : 'cookies' }, function() {
-    authWindow.loadUrl(url);
+    authWindow.loadURL(url);
     authWindow.show();
 
     // Handle the response from

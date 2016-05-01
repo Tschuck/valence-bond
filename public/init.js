@@ -1,4 +1,4 @@
-var ipc      = require('ipc');
+var ipc      = require("electron").ipcMain;;
 var config   = require(__dirname + '/config.js');
 
 /* loades normal web requireJS and map the node require js to nodeRequire */

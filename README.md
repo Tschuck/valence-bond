@@ -114,7 +114,7 @@ If the documentation is not detailed enough, please visit the [electron-documena
 ### 3.2 Index.js
 The index.js file is the backend entry point for your application. You can use the following functions:
 ```javascript
-  var ipc = require('ipc'); 
+  var ipc = require("electron").ipcMain; 
 
   module.exports = function(config) {
     var self = this;

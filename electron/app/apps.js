@@ -1,7 +1,7 @@
 var App    = require(__dirname + '/app.js');
 var fs        = require('fs');
 var async     = require('async'); 
-var ipc       = require('ipc');
+var ipc       = require("electron").ipcMain;
 var shortcuts = require('global-shortcut');
 
 var loadApps = function(paths, appsToLoad, callback) {

@@ -1,5 +1,5 @@
 var fs     = require("fs"); 
-var ipc    = require('ipc'); // electron event  handler 
+var ipc    = require("electron").ipcMain; // electron event  handler 
 var mkdirp = require('mkdirp');
 
 var DataManager = function(id) {

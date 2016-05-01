@@ -1,4 +1,4 @@
-var ipc        = require('ipc');
+var ipc        = require("electron").ipcMain;
 var Menu       = require('menu');
 var Tray       = require('tray');
 var dataHelper = require(__dirname + '/helper/data.js');
