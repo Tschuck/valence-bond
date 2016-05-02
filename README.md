@@ -86,8 +86,8 @@ If the documentation is not detailed enough, please visit the [electron-documena
     //electron window configuration (new BrowserWindow)
     window : { 
       type            : 'splash',
-      "always-on-top" : true,
-      "skip-taskbar"  : true,
+      "alwaysOnTop" : true,
+      "skipTaskbar"  : true,
       
       //position of the window
       //can be on of the following possibilities
@@ -101,10 +101,7 @@ If the documentation is not detailed enough, please visit the [electron-documena
       width           : 0,
       height          : 0,      
 
-      "overlay-scrollbars" : false,
-      "always-on-top"      : true, 
-      resizable            : false,
-
+      resizable       : false,
       transparent     : true,
       frame           : false
     }
