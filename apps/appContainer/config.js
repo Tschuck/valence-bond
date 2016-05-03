@@ -12,9 +12,9 @@ module.exports = {
     "overlayScrollbars" : false,
     
     x               : "center",
-    y               : "100%",
-    width           : 0,
-    height          : 0,
+    y               : "100% - 80px",
+    width           : 'auto',
+    height          : 'auto',
 
     resizable       : false,
     transparent     : true,

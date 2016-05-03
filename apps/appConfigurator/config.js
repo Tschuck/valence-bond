@@ -13,9 +13,9 @@ module.exports = {
     "skipTaskbar"  : true,
     
     x               : "center",
-    y               : "100% - 140px",
-    width           : 0,
-    height          : 0,
+    y               : "100% - 160px",
+    width           : 'auto',
+    height          : 'auto',
 
     "overlayScrollbars" : false,
     resizable            : false,

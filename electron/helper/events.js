@@ -21,7 +21,8 @@ var EventHelper = function(api, id) {
   });
 
   this.bindIDEvent('window_resize', function(event, obj) {
-    api.window.resize(event, obj);
+    //set new size, if config is hard coded
+    obj = api.window.resize(event, obj);
     api.app.on.resize(obj.width, obj.height);
   });
 

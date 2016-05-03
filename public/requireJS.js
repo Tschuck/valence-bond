@@ -4,7 +4,7 @@ define([], function() {
       waitSeconds: 200,
       map: {
         '*': {
-          'css'      : 'require-css'
+          'css' : 'require-css'
         }
       },
       paths: {

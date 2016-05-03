@@ -14,8 +14,7 @@ define([], function() {
 
   var getFilePathsRecursive = function(path) {
     var totalPaths = [];
-
-    var fs        = nodeRequire('fs');
+    var fs         = nodeRequire('fs');
 
     if (fs.existsSync(path)) {
       if (fs.lstatSync(path).isFile()) {

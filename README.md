@@ -98,8 +98,9 @@ If the documentation is not detailed enough, please visit the [electron-documena
       y               : "25%", 
 
       // valence-bond will auto size your application with the body size (if the frontend library is used)
-      width           : 0,
-      height          : 0,      
+      // and if the value is 'auto'
+      width           : 'auto',  //100
+      height          : 'auto',  //100     
 
       resizable       : false,
       transparent     : true,

@@ -12,8 +12,13 @@ var loadRequire = function(basePath, callback) {
 
   /* wait while require is loading */
   waitForScriptLoaded('require', function() {
-    require([ basePath + '/requireJS.js' ], function(config) {
-      require.config(config(basePath));
+    require([ basePath + '/requireJS.js' ], function(requireConfig) {
+      require.config(requireConfig(basePath));
+
+      if (config.web && config.web.require) {
+        require.config(config.web.require);
+      }
+
       callback();
     });
   });
@@ -70,17 +75,27 @@ var sendResizeEvent = function(width, height) {
 /* load require, angular and all meeWindows components*/
 var basePath = getBasePath();
 loadRequire(basePath, function() {
-  require([ 
+  //basic libs to load
+  var dependencies = [ 
     'jquery', 
     'angular', 
     'ngLoader', 
     'css!' + basePath + '/css/ng-animation.css' ,
     'css!' + basePath + '/css/animate.css',
     'css!' + basePath + '/images/style.css'
-  ], function($, ng, ngLoader, ngAnimate) {
+  ];
+
+  //add additional files from application
+  if (config.web && config.web.requireDependencies) {
+    dependencies = dependencies.concat(config.web.requireDependencies);
+  }
+
+  require(dependencies, function($, ng, ngLoader, ngAnimate) {
     bindResizeEvent($);
-    
-    var ngApp = angular.module( 'valence', [  ] );
+
+    //custom angular dependencies
+    var ngDependencies = (config.web && config.web.angularDependencies) ? config.web.angularDependencies : [ ];
+    var ngApp          = angular.module( 'valence', ngDependencies);
     ngLoader(__dirname + '/controller', ngApp, function() {
       ngLoader(__dirname + '/../../public/dataService.js', ngApp, function() {
         ngLoader(__dirname + '/directives', ngApp, function() {

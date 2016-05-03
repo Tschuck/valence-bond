@@ -14,7 +14,13 @@ var createWindow = function() {
   this.api.log.info('newWindow');
   this.api.app.loading(true);
 
-  var win = new BrowserWindow(this.config.window); 
+  //copy window config at startup to set width & height initially to zero
+  //will be setted dynamically 
+  var configCopy = JSON.parse(JSON.stringify(this.config.window));
+  configCopy.width  = 0;
+  configCopy.height = 0;
+
+  var win = new BrowserWindow(configCopy); 
   win.loadURL('file://' + this.config.path + '/index.html');
 
   if (this.config.devMode) {
@@ -43,6 +49,13 @@ Window.prototype.close = function() {
 
 Window.prototype.resize = function(event, obj) {
   this.api.log.info('resize window');
+
+  var screenSize  = screen.getPrimaryDisplay().workAreaSize;
+
+  //set size to static value, if it was configured
+  obj.width  = this.config.window.width  === 'auto' ? obj.width  : calcScreenArithmetic(screenSize.width, this.config.window.width);
+  obj.height = this.config.window.height === 'auto' ? obj.height : calcScreenArithmetic(screenSize.height, this.config.window.height);
+  
   //dont resize the current window when it's not shown on the screen (nothing will happens)
   //save the resize object and check on the next show event, if a resize was needed
   if (this.isVisible()) {
@@ -51,6 +64,10 @@ Window.prototype.resize = function(event, obj) {
   } else {
     this.savedResize = obj;
   }
+
+  console.log(obj);
+
+  return obj;
 }
 
 Window.prototype.position = function() {
@@ -67,13 +84,11 @@ Window.prototype.position = function() {
   var top  = this.config.window.top  ? this.config.window.top  : (this.config.window.y ? this.config.window.y : winPosition[1]);
   /* check if left contains percentage character and calculate the position if its available */
   if ((typeof left === "string") && (!!~left.indexOf('%') || !!~left.indexOf('px') || (left === "center"))) {
-    /* get screen size */
     left = getPercPosition(left, screenSize.width, winSize[0]);
   }
 
   /* check if top contains percentage character and calculate the position if its available */
   if ((typeof top === "string") && (!!~top.indexOf('%') || !!~top.indexOf('px') || (top === "center"))) {
-    /* get screen size */
     top = getPercPosition(top, screenSize.height, winSize[1]);
   }
   
@@ -111,9 +126,10 @@ Window.prototype.toggle = function() {
   }
 }
 
-var getPositionFromArithmetic = function(screenSize, pos) {
-  var splittedPos = ['+'].concat(pos.split(/ /g));
+var calcScreenArithmetic = function(screenSize, formular) {
+  var splittedPos = ['+'].concat(formular.split(/ /g));
   var absolutePos = 0;
+
   for (var i = 0; i < splittedPos.length; i++) {
     var operator = splittedPos[i];
     var pixels   = splittedPos[i + 1];
@@ -140,15 +156,16 @@ var getPositionFromArithmetic = function(screenSize, pos) {
       absolutePos += position;
     }
   }
-  return absolutePos;
+
+  return Math.round(absolutePos);
 };
 
 /* get position relative to the screen or fully center */
 var getPercPosition = function(pos, screenSize, windowSize) {
-  var center = (pos === "center") ? (windowSize / 2) : windowSize;
+  var center = (pos === "center") ? (windowSize / 2) : 0;
   pos        = pos.replace('center', '50%');
 
-  pos = getPositionFromArithmetic(screenSize, pos) - center;
+  pos = calcScreenArithmetic(screenSize, pos) - center;
   return Math.round(pos);
 }
 
