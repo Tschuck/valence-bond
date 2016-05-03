@@ -34,6 +34,12 @@ Install valence-bond and the electron-prebuilt package:
   npm install -g electron-prebuilt
 ```
 
+To start the package, run the following command : 
+
+```javascript
+  electron index.js
+```
+
 Notice : <b>Please clone the project in to your node_modules, currently no npm version exists.</b>
 
 Require the valence start script and be sure to load it with the absolute path. 
@@ -97,8 +103,8 @@ If the documentation is not detailed enough, please visit the [electron-documena
       x               : "25%",
       y               : "25%", 
 
-      // valence-bond will auto size your application with the body size (if the frontend library is used)
-      // and if the value is 'auto'
+      // valence-bond will auto size your application with the body size (if the frontend library is used) if the value is 'auto'
+      //  you can use also the same pattern used for the positioning
       width           : 'auto',  //100
       height          : 'auto',  //100     
 
