@@ -12,7 +12,7 @@ var loadApps = function(paths, appsToLoad, callback) {
       var folderPath = path + '/' + folder;
       /* if the element is an directory */
       if (fs.statSync(folderPath).isDirectory()) {
-        /* get all files and test if it contains an index.html */
+        /* get all files and test if it contains an index.html or config.js file */
         if (2 == fs.readdirSync(folderPath).filter(function(file) {
           return ((file == "index.html") || file == "config.js");
         }).length) {

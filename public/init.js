@@ -96,9 +96,12 @@ loadRequire(basePath, function() {
     //custom angular dependencies
     var ngDependencies = (config.web && config.web.angularDependencies) ? config.web.angularDependencies : [ ];
     var ngApp          = angular.module( 'valence', ngDependencies);
-    ngLoader(__dirname + '/controller', ngApp, function() {
+    var webRoot        = (config.web && config.web.root) || __dirname;
+
+    console.log(webRoot);
+    ngLoader(webRoot + '/controller', ngApp, function() {
       ngLoader(__dirname + '/../../public/dataService.js', ngApp, function() {
-        ngLoader(__dirname + '/directives', ngApp, function() {
+        ngLoader(webRoot + '/directives', ngApp, function() {
           ng.bootstrap(document, ['valence']);
           ipc.send('finished_window_loading', config.id);
         });        
